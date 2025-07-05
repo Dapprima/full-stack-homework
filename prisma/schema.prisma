@@ -1,0 +1,25 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Number {
+  id        Int      @id @default(autoincrement())
+  value     Int
+  createdAt DateTime @default(now())
+
+  @@map("numbers")
+}
+
+model Grade {
+  id        Int      @id @default(autoincrement())
+  class     String   @db.VarChar(50)
+  grade     Int
+  createdAt DateTime @default(now())
+
+  @@map("grades")
+}
