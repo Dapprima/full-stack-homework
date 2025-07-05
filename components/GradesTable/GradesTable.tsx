@@ -1,5 +1,3 @@
-"use client";
-
 import React from "react";
 import {
   Table,
@@ -22,7 +20,6 @@ interface GradesTableProps {
   grades: GradeResult[];
   loading: boolean;
   error: string | null;
-  message: string | null;
 }
 
 const NO_GRADES_TEXT = "No grades found. Add some grades to see the table.";
@@ -34,7 +31,6 @@ const GradesTable: React.FC<GradesTableProps> = ({
   grades,
   loading,
   error,
-  message,
 }) => {
   if (loading) {
     return (
@@ -44,7 +40,7 @@ const GradesTable: React.FC<GradesTableProps> = ({
     );
   }
 
-  if (error && !message) {
+  if (error) {
     return <Alert severity="error">{error}</Alert>;
   }
 

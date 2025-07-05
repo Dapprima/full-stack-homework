@@ -1,5 +1,3 @@
-"use client";
-
 import React from "react";
 import {
   Paper,
@@ -21,7 +19,6 @@ interface NumbersTableProps {
   pairs: NumberPair[];
   loading: boolean;
   error: string | null;
-  message: string | null;
 }
 
 const TABLE_HEADERS = ["ID 1", "Number 1", "ID 2", "Number 2", "Sum"];
@@ -34,7 +31,6 @@ const NumbersTable: React.FC<NumbersTableProps> = ({
   pairs,
   loading,
   error,
-  message,
 }) => {
   if (loading) {
     return (
@@ -44,7 +40,7 @@ const NumbersTable: React.FC<NumbersTableProps> = ({
     );
   }
 
-  if (error && !message) {
+  if (error) {
     return <Alert severity="error">{error}</Alert>;
   }
 

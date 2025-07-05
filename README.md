@@ -42,6 +42,6 @@
 
 ## ⏱️ Time Spent
 
-- The entire assessment was completed in **approximately 4 hours**.
+- The entire assessment was completed in **approximately 5 hours**.
 
 ---
