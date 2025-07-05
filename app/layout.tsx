@@ -1,9 +1,10 @@
 import React from "react";
-import { AppRouterCacheProvider } from "@mui/material-nextjs/v15-appRouter";
 import Box from "@mui/material/Box";
+import { AppRouterCacheProvider } from "@mui/material-nextjs/v15-appRouter";
 
 import Navbar from "@/components/Navbar";
 import MuiAppThemeProvider from "@/components/MuiThemeProvider";
+import ErrorBoundary from "@/components/ErrorBoundary";
 
 import "./globals.css";
 
@@ -25,7 +26,7 @@ export default function RootLayout({
           <MuiAppThemeProvider>
             <Navbar />
             <Box component="main" sx={{ p: 3 }}>
-              {children}
+              <ErrorBoundary>{children}</ErrorBoundary>
             </Box>
           </MuiAppThemeProvider>
         </AppRouterCacheProvider>
