@@ -158,7 +158,8 @@ const NumbersPage: React.FC = () => {
         )}
         {!loading && pairs.length === 0 && !error && (
           <Typography variant="body1" color="text.secondary">
-            No adjacent number pairs found. Add some numbers to see the table.
+            No adjacent number pairs found. Add some numbers (at least two
+            numbers) to see the table.
           </Typography>
         )}
         {!loading && pairs.length > 0 && (
@@ -177,9 +178,9 @@ const NumbersPage: React.FC = () => {
                 </TableRow>
               </TableHead>
               <TableBody>
-                {pairs.map((pair, index) => (
+                {pairs.map((pair) => (
                   <TableRow
-                    key={index}
+                    key={pair["ID 1"]}
                     sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
                   >
                     <TableCell component="th" scope="row">
