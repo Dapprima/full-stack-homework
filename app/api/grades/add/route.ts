@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 
 import prisma from "@/lib/prisma";
+import { MAX_GRADE, MIN_GRADE } from "@/constants/grades";
 
 export const POST = async (req: NextRequest) => {
   try {
@@ -15,8 +16,8 @@ export const POST = async (req: NextRequest) => {
     if (
       typeof grade !== "number" ||
       !Number.isInteger(grade) ||
-      grade < 0 ||
-      grade > 100
+      grade < MIN_GRADE ||
+      grade > MAX_GRADE
     ) {
       return NextResponse.json(
         { error: "Invalid input: Grade must be an integer between 0 and 100." },
@@ -34,9 +35,9 @@ export const POST = async (req: NextRequest) => {
       { status: 201 }
     );
   } catch (error) {
-    console.error("Error adding grade with raw SQL:", error);
+    console.error("Error adding grade:", error);
     return NextResponse.json(
-      { error: "Failed to add grade with raw SQL." },
+      { error: "Failed to add grade." },
       { status: 500 }
     );
   }

@@ -17,9 +17,9 @@ export const GET = async (req: NextRequest) => {
 
     return NextResponse.json({ grades }, { status: 200 });
   } catch (error) {
-    console.error("Error fetching grades with raw SQL:", error);
+    console.error("Error fetching grades:", error);
     return NextResponse.json(
-      { error: "Failed to fetch grades with raw SQL." },
+      { error: "Failed to fetch grades." },
       { status: 500 }
     );
   }

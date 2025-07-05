@@ -1,14 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 
 import prisma from "@/lib/prisma";
-
-type NumberPair = {
-  "ID 1": number;
-  "Number 1": number;
-  "ID 2": number;
-  "Number 2": number;
-  Sum: number;
-};
+import { NumberPair } from "@/types/numbers";
 
 export const GET = async (req: NextRequest) => {
   try {
